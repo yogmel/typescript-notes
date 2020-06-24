@@ -1,0 +1,23 @@
+{
+  "name": "typescript-course",
+  "version": "1.0.0",
+  "description": "Notes and exercises on Typescript course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server && tsc app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yogmel/typescript-notes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yogmel/typescript-notes/issues"
+  },
+  "homepage": "https://github.com/yogmel/typescript-notes#readme",
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  }
+}
