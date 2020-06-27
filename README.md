@@ -11,6 +11,20 @@ Typescript is a Javascript superset, compiler, hence browsers cannot run Typescr
 - Enables use of Interfaces, Generics and Decorators;
 - Highly configurable.
 
+## Install
+
+- [Get Typescript](https://www.typescriptlang.org/index.html#download-links)
+
+```
+npm install -g typescript
+```
+
+Compile:
+
+```
+tsc helloworld.ts
+```
+
 ## Core Types
 
 - [Basic Types](https://www.typescriptlang.org/docs/handbook/basic-types.html)
