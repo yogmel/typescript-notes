@@ -23,6 +23,21 @@ Compile:
 
 ```
 tsc helloworld.ts
+tsc helloworld.ts -w // watch flag
+```
+
+**Config project**
+
+Indicate that this folder and its internal ones have typescript files. This need to be done once and it will crete the `tsconfig.json`.
+
+```
+tsc --init
+```
+
+To compile all files inside the project folder:
+```
+tsc // OR
+tsc -w // to watch changes in files
 ```
 
 ## Core Types
