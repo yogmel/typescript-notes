@@ -1,5 +1,7 @@
 function add(a: number, b: number, printResult: boolean) {
-  return a + b;
+  if (printResult)
+    return a + b;
+  return;
 } 
 
 const a = 5;
