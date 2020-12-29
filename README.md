@@ -35,6 +35,7 @@ tsc --init
 ```
 
 To compile all files inside the project folder:
+
 ```
 tsc // OR
 tsc -w // to watch changes in files
@@ -184,10 +185,11 @@ function generateError(message: string, errorCode: number): never {
 }
 ```
 
+---
+
 ## Classes
 
 In Object Oriented Programming (OOP), objects are the "things you work with code" and classes are their blueprints. That said, objects can be **instances** of the classes, or based on that classes. Classes define how objects look like, which properties and methods they have.
-
 
 ### this
 
@@ -202,11 +204,11 @@ class Department {
   }
 
   describe(this: Department) {
-    console.log('Department', this.name);
+    console.log("Department", this.name);
   }
 }
 
-const accounting = new Department('accounting'); // creates a new instance of Department
+const accounting = new Department("accounting"); // creates a new instance of Department
 
 const accountingCopy = { describe: accounting.describe };
 
@@ -228,7 +230,7 @@ class Department {
   }
 }
 
-accounting.name = 'Nome'; // error: name is not accessible
+accounting.name = "Nome"; // error: name is not accessible
 ```
 
 **Shorthand initialization**
@@ -253,7 +255,7 @@ class Department {
 
   changeName(value: string) {
     this.name = name;
-    this.id = 'novo id'; // error: id cannot be changed after initialization
+    this.id = "novo id"; // error: id cannot be changed after initialization
   }
 }
 ```
@@ -270,16 +272,16 @@ If you want to use a property which is private in the base class, its access pro
 class Department {
   protected employees: string[] = [];
 
-  constructor (private id: string, public name: string) {}
+  constructor(private id: string, public name: string) {}
 
-  describe(){
-    console.log('this is department ', this.name);
+  describe() {
+    console.log("this is department ", this.name);
   }
 }
 
 class ITDepartment extends Department {
   constructor(id: string) {
-    super(id, 'IT');
+    super(id, "IT");
   }
 
   describe() {
@@ -296,7 +298,11 @@ These are special methods that can be used within classes to return or modify a 
 class Department {
   private lastReport: string;
 
-  constructor (private id: string, public name: string, private reports: string[]) {
+  constructor(
+    private id: string,
+    public name: string,
+    private reports: string[]
+  ) {
     this.lastReport = reports[0];
   }
 
@@ -314,11 +320,11 @@ class Department {
   }
 }
 
-const randomDepartment = new Department('id', 'rando name', ["one report"]);
+const randomDepartment = new Department("id", "rando name", ["one report"]);
 
 const randomDepartmentLastReport = randomDepartment.mostRecentReport; // calling the getter
 
-randomDepartment.mostRecentReport = 'example report'; // calling the setter
+randomDepartment.mostRecentReport = "example report"; // calling the setter
 ```
 
 ### Static methods and properties
@@ -329,7 +335,7 @@ Static methods and properties are available for use in dettached from classes. O
 class Department {
   static fiscalYear = 2020;
 
-  constructor (private id: string, public name: string) {
+  constructor(private id: string, public name: string) {
     console.log(this.fiscalYear); // error: Property 'fiscalYear' is a static member of type 'Department'.
     console.log(Department.fiscalYear); // this works
   }
@@ -340,7 +346,7 @@ class Department {
 }
 
 // static methods and properties are accessible by targeting the class name itself
-const newEmployee = Department.createEmployee('nome');
+const newEmployee = Department.createEmployee("nome");
 const fiscalYear = Department.fiscalYear;
 ```
 
@@ -352,7 +358,7 @@ Abstract method does not have an implementation on the abstract class and abstra
 
 ```typescript
 abstract class Department {
-  constructor (protected id: string) {}
+  constructor(protected id: string) {}
 
   abstract describe(this: Department): void;
 }
@@ -363,7 +369,7 @@ class ITDepartment extends Department {
   }
 }
 
-const department = new Department('id'); // error: Cannot create an instance of an abstract class.
+const department = new Department("id"); // error: Cannot create an instance of an abstract class.
 ```
 
 ### Singleton
@@ -374,15 +380,13 @@ Singleton is a pattern in OOP that makes sure that there is only one instance of
 class ITDepartment {
   private static instance: ITDepartment;
 
-  private constructor(private id: string) {
-
-  }
+  private constructor(private id: string) {}
 
   static getInstance() {
     if (this.instance) {
       return this.instance;
     }
-    this.instance = new ITDepartment('id');
+    this.instance = new ITDepartment("id");
     return this.instance;
   }
 
@@ -393,3 +397,5 @@ class ITDepartment {
 
 const companyDepartment = ITDepartment.getInstance();
 ```
+
+---
