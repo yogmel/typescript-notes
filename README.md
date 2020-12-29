@@ -174,11 +174,13 @@ if (typeof userInput === "string") {
 }
 ```
 
-- `never`: used in a function return, when a returned value should never exist
+- `never`: a more recent type, used in a function return, when a returned value should never exist. Use cases could be when a function throws an error (script stops running) or it is an infinite loop (function never returns undefined).
 
 ```typescript
 function generateError(message: string, errorCode: number): never {
   throw { message, errorCode };
+
+  // while(true) {}; // also never
 }
 ```
 
